@@ -44,6 +44,6 @@ connect.then((db) => {
     })
     .catch((err) => {
         console.log(err);
-    });
+    }); 
 
 });
