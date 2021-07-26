@@ -46,7 +46,7 @@ exports.verifyUser = function (req, res, next) {
     if (token) {
         jwt.verify(token, config.secretKey, function (err, decoded) {
             if (err) {
-                var err = new Error('You are not authenticated!');
+                var err = new Error('You are not authenticated');
                 err.status = 401;
                 return next(err);
             } else {
@@ -65,7 +65,7 @@ exports.verifyAdmin = function (req, res, next) {
     if (req.user.admin) {
         next();
     } else {
-        var err = new Error('You are not authorized to perform this operation!');
+        var err = new Error('You are not authorized to perform this operation');
         err.status = 403;
         return next(err);
     }
