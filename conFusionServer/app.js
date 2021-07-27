@@ -14,6 +14,7 @@ var usersRouter = require('./routes/users');
 var dishRouter = require('./routes/dishRouter')
 var promoRouter = require('./routes/promoRouter')
 var leaderRouter = require('./routes/leaderRouter')
+const uploadRouter = require('./routes/uploadRouter');
 
 
 var app = express();
@@ -26,6 +27,8 @@ app.use(passport.session());
 const mongoose = require('mongoose');
 
 const Dishes = require('./models/dishes');
+
+app.use('/imageUpload',uploadRouter);
 
 const url = config.mongoUrl;
 const connect = mongoose.connect(url);
