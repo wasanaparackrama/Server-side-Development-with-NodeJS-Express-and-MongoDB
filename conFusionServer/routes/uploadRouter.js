@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const authenticate = require('../authenticate');
 const multer = require('multer');
 
+
+//diskstorge define storage 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'public/images');
@@ -46,3 +48,5 @@ uploadRouter.route('/')
 });
 
 module.exports = uploadRouter;
+
+
