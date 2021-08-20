@@ -16,9 +16,9 @@ promoRouter.route('/(:promoId)?')
 	next()
 })
 
-.get((req, res, next) => {
+.get(cors.cors, (req,res,next) => {
 	if(req.params.promoId){
-		Promotions.findById(req.params.promoId)
+		Promotions.find(req.query)
 		.then((promotion) => {
 			res.statusCode = 200;
 			res.setHeader('Content-Type', 'application/json');
